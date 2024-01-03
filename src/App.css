@@ -1,42 +1,27 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&family=Signika:wght@300&display=swap');
+/* 
+font-family: 'Sigmar One',
+sans-serif;
+font-family: 'Signika',
+sans-serif; */
+
+body{
+  background-color: #4158D0;
+    background-image: linear-gradient(180deg, #4158D0 0%, #7d2578 30%, #c19333 66%, #ad0e00 100%);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main{
+  flex-grow: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+.color{
+  font-family: 'Sigmar One',sans-serif;
+  color: cornsilk;
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
