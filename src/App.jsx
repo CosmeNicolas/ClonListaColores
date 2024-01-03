@@ -9,7 +9,7 @@ function App() {
   return (
     <>
      <Container fluid className="main">
-      <h1 className='color text-center mt-5'>Color List</h1>
+        <h1 className='color text-center mt-5'>🖌️Color List 🎨</h1>
      </Container>
      <Footer/>
     </>
