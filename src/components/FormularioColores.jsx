@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap"
 import ListaColores from './ListaColores'
 
 
 const FormularioColores = () => {
   const [color, setColor] = useState('')
-  const [colores, setColores] = useState([]) 
+  const coloresGuardados = JSON.parse(localStorage.getItem('guardarColor')) || []
+  const [colores, setColores] = useState(coloresGuardados) 
 
 
   const borraColor = (nombreColor)=> {
    const  obtenerColor = colores.filter((color)=> color !== nombreColor);
     setColores(obtenerColor)
-  }
+    }
+
+    useEffect(() => {
+     localStorage.setItem('guardarColor',JSON.stringify(colores))
+    }, [colores])
+    
 
   const handleSubmit = (e) =>{
     e.preventDefault()
