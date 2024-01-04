@@ -13,7 +13,6 @@ function App() {
      <Container fluid className="main">
         <h1 className='color text-center mt-5'>🖌️Color List 🎨</h1>
         <FormularioColores/>
-      
      </Container>
      <Footer/>
     </>

@@ -8,6 +8,11 @@ const FormularioColores = () => {
   const [colores, setColores] = useState([]) 
 
 
+  const borraColor = (nombreColor)=> {
+   const  obtenerColor = colores.filter((color)=> color !== nombreColor);
+    setColores(obtenerColor)
+  }
+
   const handleSubmit = (e) =>{
     e.preventDefault()
     setColores([...colores, color])
@@ -33,7 +38,7 @@ const FormularioColores = () => {
           Guardar
         </Button>
       </Form>
-      <ListaColores colores={colores} />
+      <ListaColores colores={colores} borrarColor={borraColor} />
      </>
   )
 };
