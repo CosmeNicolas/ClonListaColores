@@ -5,11 +5,13 @@ import ListaColores from './ListaColores'
 
 const FormularioColores = () => {
   const [color, setColor] = useState('')
-  /* const [guardarColor, setGuardarColor] = useState([]) */
+  const [colores, setColores] = useState([]) 
 
 
   const handleSubmit = (e) =>{
     e.preventDefault()
+    setColores([...colores, color])
+    setColor('')
   }
 
 
@@ -31,7 +33,7 @@ const FormularioColores = () => {
           Guardar
         </Button>
       </Form>
-      <ListaColores />
+      <ListaColores colores={colores} />
      </>
   )
 };
