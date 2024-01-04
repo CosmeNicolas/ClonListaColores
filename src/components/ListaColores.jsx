@@ -1,18 +1,18 @@
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const ListaColores = ({colores, borrarColor}) => {
   return (
     <>
-  
-    <Container className="d-flex flex-wrap">
-
         {
+  
           colores.map((itemColor, posicionColor)=>
-            <Card className="mt-5  mx-2" >
+  
+
+            <Card className="mt-5  mx-2" key={posicionColor}>
               <Card.Body>
-                <Card.Title className="text-center" key={itemColor} >{itemColor}</Card.Title>
+                <Card.Title className="text-center"  >{itemColor}</Card.Title>
                 <div className="text-center">
-                  <p className="p ms-5"></p>
+                  <p className="p ms-5" ></p>
                 </div>
                 <div className="text-end">
                   <Button onClick={() => borrarColor(itemColor)} className="mt-2" variant="danger">
@@ -22,7 +22,7 @@ const ListaColores = ({colores, borrarColor}) => {
               </Card.Body>
             </Card>)
         }
-    </Container>
+  
     </>
   );
 };
