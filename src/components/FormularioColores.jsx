@@ -29,7 +29,7 @@ const FormularioColores = () => {
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 text-center" controlId="formBasicEmail">
-          <Form.Label className="display-5">Administrar Colores</Form.Label>
+          <Form.Label className="display-5">Colour Palette</Form.Label>
           <Form.Control type="text"
             placeholder="Ingrese un color: Ej Rojo"
             minLength={3}
