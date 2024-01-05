@@ -29,18 +29,20 @@ const FormularioColores = () => {
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 text-center" controlId="formBasicEmail">
-          <Form.Label className="display-5">Colour Palette</Form.Label>
+          <Form.Label className="display-5 text-light">Colour Palette</Form.Label>
           <Form.Control type="text"
-            placeholder="Ingrese un color: Ej Rojo"
+            placeholder="Ingrese un color en Inglés: Ej red"
             minLength={3}
             maxLength={15}
             onChange={(e) => setColor(e.target.value)}
             value={color}
           />
         </Form.Group>
-        <Button variant="dark" type="submit">
-          Guardar
-        </Button>
+        <div className="text-center">
+          <Button variant="dark" type="submit" className="button">
+            Guardar Color
+          </Button>
+        </div>
       </Form>
       <ListaColores colores={colores} borrarColor={borraColor} />
     </>
