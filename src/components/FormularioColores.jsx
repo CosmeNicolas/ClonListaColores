@@ -6,38 +6,36 @@ import ListaColores from './ListaColores'
 const FormularioColores = () => {
   const [color, setColor] = useState('')
   const coloresGuardados = JSON.parse(localStorage.getItem('guardarColor')) || []
-  const [colores, setColores] = useState(coloresGuardados) 
+  const [colores, setColores] = useState(coloresGuardados)
 
 
-  const borraColor = (nombreColor)=> {
-   const  obtenerColor = colores.filter((color)=> color !== nombreColor);
+  const borraColor = (nombreColor) => {
+    const obtenerColor = colores.filter((color) => color !== nombreColor);
     setColores(obtenerColor)
-    }
+  }
 
-    useEffect(() => {
-     localStorage.setItem('guardarColor',JSON.stringify(colores))
-    }, [colores])
-    
+  useEffect(() => {
+    localStorage.setItem('guardarColor', JSON.stringify(colores))
+  }, [colores])
 
-  const handleSubmit = (e) =>{
+
+  const handleSubmit = (e) => {
     e.preventDefault()
     setColores([...colores, color])
     setColor('')
   }
 
-
-
   return (
-     <>
+    <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 text-center" controlId="formBasicEmail">
           <Form.Label className="display-5">Administrar Colores</Form.Label>
-          <Form.Control type="text" 
-          placeholder="Ingrese un color: Ej Rojo"
-          minLength={3} 
-          maxLength={15}
-          onChange={(e)=>setColor(e.target.value)}
-          value={color}
+          <Form.Control type="text"
+            placeholder="Ingrese un color: Ej Rojo"
+            minLength={3}
+            maxLength={15}
+            onChange={(e) => setColor(e.target.value)}
+            value={color}
           />
         </Form.Group>
         <Button variant="dark" type="submit">
@@ -45,7 +43,7 @@ const FormularioColores = () => {
         </Button>
       </Form>
       <ListaColores colores={colores} borrarColor={borraColor} />
-     </>
+    </>
   )
 };
 
