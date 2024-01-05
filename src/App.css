@@ -26,16 +26,17 @@ body {
 }
 
 /* contenedor de prueba color  */
-.p{
-  height: 100px;
-  width: 100px;
-  background-color: #4d278e;
-} 
+
 
 .card{
   width: 250px;
   height: 250px;
-  font-family: 'Signika',
-      sans-serif;
+  font-family: 'Signika',sans-serif;
 }
 
+.box{
+  
+  height: 100px;
+  width: 100px;
+  border-color: black 1px;
+}

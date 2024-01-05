@@ -11,9 +11,7 @@ const ListaColores = ({colores, borrarColor}) => {
             <Card className="mt-5  mx-2" key={posicionColor}>
               <Card.Body>
                 <Card.Title className="text-center"  >{itemColor}</Card.Title>
-                <div className="text-center">
-                  <p className="p ms-5" ></p>
-                </div>
+                <div className="text-center box" style={{ backgroundColor: itemColor, padding: '10px' }}></div>
                 <div className="text-end">
                   <Button onClick={() => borrarColor(itemColor)} className="mt-2" variant="danger">
                   Borrar
