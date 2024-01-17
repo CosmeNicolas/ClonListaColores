@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap"
 import ListaColores from './ListaColores'
+import Swal from 'sweetalert2'
 
 
 const FormularioColores = () => {
@@ -12,6 +13,11 @@ const FormularioColores = () => {
   const borraColor = (nombreColor) => {
     const obtenerColor = colores.filter((color) => color !== nombreColor);
     setColores(obtenerColor)
+    Swal.fire({
+      icon: 'success',
+      title: 'Éxito',
+      text: 'Color Borrado con éxito',
+    })
   }
 
   useEffect(() => {
@@ -21,8 +27,25 @@ const FormularioColores = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if(color.trim('') === ''){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Por favor, ingresa un color en ingles',
+      });
+      return
+    }
+
     setColores([...colores, color])
     setColor('')
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Éxito',
+      text: 'Color agregado con éxito',
+    })
+
   }
 
   return (
