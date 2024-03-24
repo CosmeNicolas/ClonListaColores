@@ -4,7 +4,7 @@ import { borrarColorAPI, leerColoresAPI } from "./helpers/queries.js";
 
 const ListaColores = ({ colores, setColores }) => {
   console.log(colores);
-  const borrarColor = async(id) => {
+  const borrarColor = async (id) => {
     Swal.fire({
       title: "¿Estas seguro de eliminar el Color?",
       text: "No puedes revertir este proceso posteriormente",
@@ -21,7 +21,7 @@ const ListaColores = ({ colores, setColores }) => {
           const colorActualizados = await leerColoresAPI();
           setColores(colorActualizados);
           Swal.fire({
-            title: "Producto eliminado",
+            title: "Color eliminado",
             text: `El Color fue eliminado correctamente`,
             icon: "success",
           });
@@ -40,7 +40,7 @@ const ListaColores = ({ colores, setColores }) => {
     <>
       <Container fluid className="d-flex flex-wrap justify-content-center">
         {colores.map((color) => (
-          <Card className="mt-5 mx-2 mb-3" key={color. _id}>
+          <Card className="mt-5 mx-2 mb-3" key={color._id}>
             <Card.Body className="d-flex flex-column justify-content-center align-items-center">
               <Card.Title className="text-center">
                 {color.nombreColor}
@@ -50,7 +50,11 @@ const ListaColores = ({ colores, setColores }) => {
                 style={{ backgroundColor: color.nombreColor, padding: "10px" }}
               ></div>
               <div className="text-end">
-                <Button onClick={()=>borrarColor(color._id)} className="mt-2" variant="danger">
+                <Button
+                  onClick={() => borrarColor(color._id)}
+                  className="mt-2"
+                  variant="danger"
+                >
                   Borrar
                 </Button>
               </div>
