@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import ListaColores from "./ListaColores";
 import Swal from "sweetalert2";
 import { crearColorAPI, leerColoresAPI } from "./helpers/queries.js";
@@ -7,8 +7,10 @@ import { crearColorAPI, leerColoresAPI } from "./helpers/queries.js";
 const FormularioColores = () => {
   const [colores, setColores] = useState([]);
   const [nuevoColor, setNuevoColor] = useState("");
+  const [cargando, setCargando] = useState(false)
 
   useEffect(() => {
+    setCargando(true)
     leerColoresInicio();
   }, []);
 
@@ -21,6 +23,7 @@ const FormularioColores = () => {
       }
       const coloresAPIinicio = await respuesta;
       setColores(coloresAPIinicio);
+      setCargando(false)
     } catch (error) {
       console.log(error);
     }
@@ -62,6 +65,7 @@ const FormularioColores = () => {
 
   return (
     <>
+   
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 text-center" controlId="formBasicEmail">
           <Form.Label className="display-5 text-light">
@@ -83,7 +87,16 @@ const FormularioColores = () => {
           </Button>
         </div>
       </Form>
-      <ListaColores colores={colores} setColores={setColores} />
+      {
+      cargando ? (
+        <div className="text-center mt-3">
+          <Spinner className="text-center" animation="border" variant="warning" />
+        </div>
+      ):(
+        <ListaColores colores={colores} setColores={setColores} />
+      )
+    }
+      
     </>
   );
 };

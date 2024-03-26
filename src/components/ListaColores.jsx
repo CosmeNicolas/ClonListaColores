@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 import { borrarColorAPI, leerColoresAPI } from "./helpers/queries.js";
 
 const ListaColores = ({ colores, setColores }) => {
-  console.log(colores);
   const borrarColor = async (id) => {
     Swal.fire({
       title: "¿Estas seguro de eliminar el Color?",
